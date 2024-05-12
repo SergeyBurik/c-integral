@@ -2,7 +2,7 @@
 #include <math.h>
 #include <string.h>
 
-#include "integral.h"
+int func1(int x);
 
 double f1(double x) {
     return 1 + 4 / (x * x + 1);
