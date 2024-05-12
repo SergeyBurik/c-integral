@@ -4,7 +4,7 @@
 
 double func1(double x);
 double func2(double x);
-
+double func3(double x);
 
 double f1(double x) {
     return 1 + 4 / (x * x + 1);
