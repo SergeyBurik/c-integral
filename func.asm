@@ -9,7 +9,7 @@ func1:
 	fld st0 ; загрузка x в регистр ST1
 
     fmul                ; x*x
-    fmul                ; (x*x)*x
+    fmulp                ; (x*x)*x
 	fstp qword [eax]
     mov esp, ebp        ; восстановление указателя стека
     pop ebp             ; восстановление базового указателя
