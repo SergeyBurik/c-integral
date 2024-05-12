@@ -17,5 +17,5 @@ clean:
     rm –rf *.o
 
 test:
-     $(AS) $(ASMFLAGS) func.asm -o func.o
-     $(CC) -DTEST $(CFLAGS) integral.c –lm integral.h func.o –o integral
+    $(AS) $(ASMFLAGS) func.asm -o func.o
+    $(CC) -DTEST $(CFLAGS) integral.c –lm integral.h func.o –o integral
