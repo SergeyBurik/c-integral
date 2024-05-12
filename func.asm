@@ -1,4 +1,5 @@
-global func1:
+global func1
+func1:
 	push ebp
 	mov ebp, esp
 	finit
