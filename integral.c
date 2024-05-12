@@ -129,7 +129,7 @@ int main(int argc, char* argv[]) {
         } 
         if (strcmp(argv[i], "--test-integral") == 0 || strcmp(argv[i], "-I") == 0) {
             char* opt = argv[i + 1];
-            int f_1, f_2;
+            int f_1;
             double A, B, E, R;
             sscanf(opt, "%d:%lf:%lf:%lf:%lf", &f_1, &A, &B, &E, &R);
             test_integral(f_1, A, B, E, R);

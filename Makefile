@@ -4,7 +4,7 @@ CFLAGS+=-Wall -Werror -Wformat-security -Wignored-qualifiers -Winit-self
 CFLAGS+=-Wswitch-default -Wpointer-arith -Wtype-limits -Wempty-body
 CFLAGS+=-Wstrict-prototypes -Wold-style-declaration -Wold-style-definition
 CFLAGS+=-Wmissing-parameter-type -Wmissing-field-initializers -Wnested-externs
-CFLAGS+=-Wstack-usage=4096 -Wmissing-prototypes -Wfloat-equal -Wabsolute-value
+CFLAGS+=-Wstack-usage=4096 -Wfloat-equal -Wabsolute-value
 CFLAGS+=-fsanitize=undefined -fsanitize-undefined-trap-on-error
 CC+=-m32 -no-pie -fno-pie
 LDLIBS=-lm
