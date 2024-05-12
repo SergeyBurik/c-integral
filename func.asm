@@ -13,10 +13,10 @@ func1:
 
     fstp qword [esp]
 
-	mov dword [esp + 8], 2
+    mov dword [esp + 8], 2
     fild dword [esp + 8]
     
-	call exp
+    call pow
     add esp, 16
     pop ebp
     ret
