@@ -147,6 +147,6 @@ int main(int argc, char* argv[]) {
     double intf3 = integral(f3, f13, f23, eps2);
     double intres = intf1 - intf2 - intf3;
 
-    printf("Result: %lf", intres);
+    printf("Result: %lf\n", intres);
     return 0;
 }
