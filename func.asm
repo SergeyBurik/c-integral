@@ -2,18 +2,16 @@ extern pow, exp
 
 global func1
 func1:
-    push ebp            
-    mov ebp, esp       
+    push ebp
+    mov ebp, esp
     finit
-    fld qword [ebp + 8] 
-    fld st0 ; загрузка x в регистр ST1
-
-    fmul                ; x*x
-    fmul                ; (x*x)*x
-    fstp
-    mov esp, ebp        
-    pop ebp            
-    ret             
+    fld qword [esp + 8]
+    fld qword [esp + 8]
+    fld qword [esp + 8]
+    fmulp
+    fmulp
+    leave
+    ret            
 
 global func2
 func2:
