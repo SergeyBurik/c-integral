@@ -15,18 +15,20 @@ func1:
 
 global func2
 func2:
-    push ebp            ; сохранение значения базового указателя
-    mov ebp, esp        ; установка нового базового указателя
-    
-    fld1                ; загрузка значения 1 в регистр FPU ST0
-    fld dword [ebp + 8] ; загрузка значения x из стека в регистр FPU ST0
-    fchs                ; инверсия знака x (теперь -x)
-    fstp st1            ; перемещение -x из ST0 в ST1 для pow
-    mov eax, 1          ; передача 1 в eax для использования в функции pow
-    call pow            ; вызов функции pow для вычисления 2^(-x)
+    push ebp
+    mov ebp, esp
+
+    fld qword [ebp+8]   ; Загружаем x в ST(0)
+    fchs                 ; Меняем знак x на противоположный (-x)
+    fstp qword [ebp-8] ; Сохраняем -x на стеке
+    push 2               ; Загружаем 2 на стек
+    lea eax, [ebp-8]    ; Загружаем адрес -x на стек
+    push eax
+    call pow            ; Вызываем функцию pow(2, -x)
+    add esp, 16          ; Очищаем стек
+
     mov esp, ebp
     pop ebp
-    
     ret
 
 global func3
