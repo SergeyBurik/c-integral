@@ -1,3 +1,5 @@
+extern pow, exp
+
 global func1
 func1:
     push ebp
