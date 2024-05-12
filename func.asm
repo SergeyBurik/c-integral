@@ -10,7 +10,7 @@ func1:
 
     fmul                ; x*x
     fmulp                ; (x*x)*x
-	fstp qword [eax]
+	fstp
     mov esp, ebp        ; восстановление указателя стека
     pop ebp             ; восстановление базового указателя
     ret             
