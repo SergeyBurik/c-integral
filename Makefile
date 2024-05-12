@@ -5,17 +5,22 @@ ASMFLAGS += -g –f elf32
 
 all: integral
 
+integral: func.o integral.o
+	$(CC) $(CFLAGS) -o integral func.o integral.o $(LDLIBS)
+
+integral.o: integral.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
 func.o: func.asm
-	$(AS) $(ASMFLAGS) $< -o $@
+	nasm -f elf32 -o $@ $^
 
-integral: integral.c integral.h func.o
-	$(CC) $(CFLAGS) $^ -lm –o $@
-
-.PHONY: clean
+test: integral
+./$< -R 1:2:0.0:1.0:0.00001:0.448178
+./$< -R 1:3:-1.9:-1.27:0.00001:-1.82114
+./$< -R 2:3:-0.5:0:0.00001:-0.15287
+./$< -I 1:-6.0:6.0:0.00001:82.8
+./$< -I 2:0.0:2.0:0.00001:8.0
+./$< -I 3:0.0:1.0:0.00001:0.405465
 
 clean:
-	rm –rf *.o
-
-test:
-	$(AS) $(ASMFLAGS) func.asm -o func.o
-	$(CC) -DTEST $(CFLAGS) integral.c –lm integral.h func.o –o integral
+	rm -rf *.o integral
