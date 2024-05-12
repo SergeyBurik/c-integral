@@ -18,7 +18,6 @@ func2:
     push ebp
     mov ebp, esp
 
-    ; Загрузка аргумента x в стек сопроцессора
     fld qword [ebp+8]
 
     ; Загрузка 2 в стек сопроцессора
@@ -29,10 +28,10 @@ func2:
     ; Вызов pow(2, -x)
     fchs ; Изменение знака x
     fstp qword [esp] ; Сохранение -x на стек
-    call pow
-    add esp, 8
+    mov dword[esp + 8], 2
+	call pow
+    add esp, 16
 
-    ; Возврат результата
     mov esp, ebp
     pop ebp
     ret
