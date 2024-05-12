@@ -138,9 +138,9 @@ int main(int argc, char* argv[]) {
             i += 1;
         }
     }
-    printf("->>>>>>>>>>>>>FUNC1: %lf\n", func1(2));
-    printf("->>>>>>>>>>>>>FUNC2: %lf\n", func2(2));
-    printf("->>>>>>>>>>>>>FUNC3: %lf\n", func3(2));
+    printf("->>>>>>>>>>>>>FUNC1: %lf\n", func1(3));
+    printf("->>>>>>>>>>>>>FUNC2: %lf\n", func2(3));
+    printf("->>>>>>>>>>>>>FUNC3: %lf\n", func3(3));
 
     double eps1 = 0.000001;
     double eps2 = 0.000001;
