@@ -2,7 +2,7 @@
 #include <math.h>
 #include <string.h>
 
-int func1(int x);
+double func1(double x);
 
 double f1(double x) {
     return 1 + 4 / (x * x + 1);
@@ -136,7 +136,7 @@ int main(int argc, char* argv[]) {
             i += 1;
         }
     }
-
+    printf("->>>>>>>>>>>>>.FUNC1: %lf", func1(2.5));
     double eps1 = 0.000001;
     double eps2 = 0.000001;
     double f23 = root(f2, f3, 0, 1, eps1);

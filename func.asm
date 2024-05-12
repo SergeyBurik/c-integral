@@ -1,3 +1,10 @@
 global func1:
-	mov eax, dword[esp + 4]
-	ret
+	push ebp
+	mov ebp, esp
+	finit
+	fld qword[ebp + 8]
+	fmul st0, st0
+	fmul 
+	fstp qword [ebp + 8]
+	pop ebp
+    ret
