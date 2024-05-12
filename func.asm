@@ -39,12 +39,18 @@ func3:
     push ebp
     mov ebp, esp
 
-    fld qword [ebp + 8]     ; загружаем x в ST(0)
-    fmul st0                ; x * x
-    fadd qword [one]        ; x * x + 1
-    fdiv qword [four]       ; 4 / (x * x + 1) 
-    fadd qword [one]        ; 1 + 4 / (x * x + 1)
+    fld qword [ebp+8]     ; Загружаем x в ST(0)
+    fmul st0              ; ST(0) = x * x
+    fld1                  ; Загружаем 1 в ST(0)
+    faddp                 ; ST(0) = x * x + 1
+    fld1                  ; Загружаем 1 в ST(0)
+    fld qword [four]     ; Загружаем 4 в ST(0)
+    fdivp                 ; ST(0) = 4 / (x * x + 1)
+    faddp                 ; ST(0) = 1 + 4 / (x * x + 1)
 
     mov esp, ebp
     pop ebp
     ret
+
+section .data
+four: dq 4.0
