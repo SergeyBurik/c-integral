@@ -140,6 +140,7 @@ int main(int argc, char* argv[]) {
     }
     printf("->>>>>>>>>>>>>FUNC1: %lf\n", func1(2));
     printf("->>>>>>>>>>>>>FUNC2: %lf\n", func2(2));
+    printf("->>>>>>>>>>>>>FUNC3: %lf\n", func3(2));
 
     double eps1 = 0.000001;
     double eps2 = 0.000001;

@@ -33,3 +33,18 @@ func2:
     mov esp, ebp        ; очистка стека и завершение функции
     pop ebp
     ret
+
+global func3
+func3:
+    push ebp
+    mov ebp, esp
+
+    fld qword [ebp + 8]     ; загружаем x в ST(0)
+    fmul st0                ; x * x
+    fadd qword [one]        ; x * x + 1
+    fdiv qword [four]       ; 4 / (x * x + 1) 
+    fadd qword [one]        ; 1 + 4 / (x * x + 1)
+
+    mov esp, ebp
+    pop ebp
+    ret
