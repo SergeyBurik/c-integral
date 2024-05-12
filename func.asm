@@ -2,15 +2,15 @@ extern pow, exp
 
 global func1
 func1:
-    push ebp            ; сохранение регистра базового указателя
-    mov ebp, esp        ; установка базового указателя
+    push ebp            
+    mov ebp, esp       
     finit
-	fld qword [ebp + 8] ; загрузка x в регистр ST0
+	fld qword [ebp + 8] 
 	fld st0 ; загрузка x в регистр ST1
 
     fmul                ; x*x
     fmulp                ; (x*x)*x
-	fstp
-    mov esp, ebp        ; восстановление указателя стека
-    pop ebp             ; восстановление базового указателя
+	fstp qword[ebp]
+    mov esp, ebp        
+    pop ebp            
     ret             
