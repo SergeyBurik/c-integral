@@ -105,7 +105,7 @@ void test_integral(int f1, double a, double b, double eps, double res) {
     }
    
     double val = integral(func, a, b, eps);
-    printf("test integral: %lf %lf %lf", val, res, val - res);
+    printf("test integral: %lf %lf %lf\n", val, res, val - res);
 }
 
 int main(int argc, char* argv[]) {    
