@@ -24,12 +24,8 @@ func2:
     fstp st1            ; перемещение -x из ST0 в ST1 для pow
     mov eax, 1          ; передача 1 в eax для использования в функции pow
     call pow            ; вызов функции pow для вычисления 2^(-x)
+    leave
     
-    ; обработка результата вычислений
-    fstp QWORD [ebp - 8] ; сохранение результата в переменной result
-
-    mov esp, ebp        ; очистка стека и завершение функции
-    pop ebp
     ret
 
 global func3
