@@ -2,6 +2,8 @@
 #include <math.h>
 #include <string.h>
 
+#include "integral.h"
+
 double f1(double x) {
     return 1 + 4 / (x * x + 1);
 }
