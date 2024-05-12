@@ -6,10 +6,10 @@ ASMFLAGS += -g –f elf32
 all: integral
 
 integral: func.o integral.o
-	$(CC) $(CFLAGS) -o integral func.o integral.o $(LDLIBS)
+	$(CC) -o integral func.o integral.o $(LDLIBS)
 
 integral.o: integral.c
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) -c $< -o $@
 
 func.o: func.asm
 	nasm -f elf32 -o $@ $^
