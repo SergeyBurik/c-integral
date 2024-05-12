@@ -18,15 +18,21 @@ func2:
     push ebp
     mov ebp, esp
 
-    fld qword [ebp+8]   ; Загружаем x в ST(0)
-    fchs                 ; Меняем знак x на противоположный (-x)
-    fstp qword [ebp-8] ; Сохраняем -x на стеке
-    push 2               ; Загружаем 2 на стек
-    lea eax, [ebp-8]    ; Загружаем адрес -x на стек
-    push eax
-    call pow            ; Вызываем функцию pow(2, -x)
-    add esp, 16          ; Очищаем стек
+    ; Загрузка аргумента x в стек сопроцессора
+    fld qword [ebp+8]
 
+    ; Загрузка 2 в стек сопроцессора
+    fld1
+    fld1
+    faddp st1
+
+    ; Вызов pow(2, -x)
+    fchs ; Изменение знака x
+    fstp qword [esp] ; Сохранение -x на стек
+    call pow
+    add esp, 8
+
+    ; Возврат результата
     mov esp, ebp
     pop ebp
     ret
