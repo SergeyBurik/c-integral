@@ -1,12 +1,12 @@
 CC = gcc
-CFLAGS += -m32 –Wall –g –o2 –W
+CFLAGS += –Wall –g –o2 –W
 AS = nasm
 ASMFLAGS += -g –f elf32
 
 all: integral
 
 integral: func.o integral.o
-	$(CC) $(CFLAGS) -o integral func.o integral.o $(LDLIBS)
+	$(CC) -o integral func.o integral.o $(LDLIBS)
 
 integral.o: integral.c
 	$(CC) -c $(CFLAGS) $< -o $@
