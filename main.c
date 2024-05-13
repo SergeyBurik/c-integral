@@ -38,6 +38,7 @@ double integral(double (*f)(double), double a, double b, double eps2) {
     double h = 1;
 
     while ((1 / 3) * fabs(prevRes - res) < eps2) {
+        printf("->>%lf %lf\n", res, prevRes);
         prevRes = res;
         h = (b - a) / n;
         res = (f(a) - f(b)) / 2;
