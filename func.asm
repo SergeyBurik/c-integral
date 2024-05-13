@@ -55,7 +55,6 @@ func3:
 	fld1
     fld1
     faddp st1
-	faddp st1
 
     fdivp                 ; ST(0) = 4 / (x * x + 1)
 	fld1
