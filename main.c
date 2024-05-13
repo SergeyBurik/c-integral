@@ -138,7 +138,7 @@ int main(int argc, char* argv[]) {
             i += 1;
         }
     }
-    printf("->>>>>>>>>>>>>FUNC1: %lf\n", func1(3));
+    printf("->>>>>>>>>>>>>FUNC1: %lf\n", func1(2.7));
     printf("->>>>>>>>>>>>>FUNC2: %lf\n", func2(3));
     printf("->>>>>>>>>>>>>FUNC3: %lf\n", func3(3));
 
