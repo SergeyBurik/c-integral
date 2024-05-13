@@ -10,7 +10,8 @@ func1:
     fld qword [esp + 8]
     fmulp
     fmulp
-    leave
+    mov esp, ebp
+    pop ebp
     ret            
 
 global func2
