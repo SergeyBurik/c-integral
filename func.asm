@@ -46,7 +46,9 @@ func3:
     fld qword [ebp+8]     ; Загружаем x в ST(0)
     fld qword [ebp+8]     ; Загружаем x в ST(0)
     fmulp                 ; ST(0) = x * x
-    
+    fld1                  ; Загружаем 1 в ST(0)
+    faddp                 ; ST(0) = x * x + 1
+
 	
     mov esp, ebp
     pop ebp
