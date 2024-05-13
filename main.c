@@ -2,21 +2,9 @@
 #include <math.h>
 #include <string.h>
 
-double func1(double x);
-double func2(double x);
-double func3(double x);
-
-double f1(double x) {
-    return 1 + 4 / (x * x + 1);
-}
-
-double f2(double x) {
-    return x * x * x;
-}
-
-double f3(double x) {
-    return pow(2, -x);
-}
+double f1(double x);
+double f2(double x);
+double f3(double x);
 
 int showIterations = 0;
 int showRoot = 0;
