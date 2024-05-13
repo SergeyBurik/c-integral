@@ -46,8 +46,6 @@ double integral(double (*f)(double), double a, double b, double eps2) {
     return res;
 }
 
-// TODO check odz
-
 double test_f1(double x) {
     return pow(x + 1, 3) + 1;
 }
@@ -127,9 +125,7 @@ int main(int argc, char* argv[]) {
             i += 1;
         }
     }
-    printf("->>>>>>>>>>>>>FUNC1: %lf\n", f1(2.7));
-    printf("->>>>>>>>>>>>>FUNC2: %lf\n", f2(5));
-    printf("->>>>>>>>>>>>>FUNC3: %lf\n", f3(3));
+   
 
     double eps1 = 0.000001;
     double eps2 = 0.000001;
@@ -140,6 +136,9 @@ int main(int argc, char* argv[]) {
     double intf2 = integral(f2, f23, f12, eps2);
     double intf3 = integral(f3, f13, f23, eps2);
     double intres = intf1 - intf2 - intf3;
+    printf("->>>>>>>>>>>>>FUNC1: %lf\n", f23);
+    printf("->>>>>>>>>>>>>FUNC2: %lf\n", f12);
+    printf("->>>>>>>>>>>>>FUNC3: %lf\n", f13);
 
     printf("Result: %lf\n", intres);
     return 0;
