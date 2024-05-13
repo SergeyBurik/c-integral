@@ -127,10 +127,6 @@ int main(int argc, char* argv[]) {
         }
     }
     
-    for (double i = -1; i < 1; i+=0.1) {
-        printf("%lf %lf\n", f2(i), func2(i));
-    }
-
     double eps1 = 0.000001;
     double eps2 = 0.000001;
     double f23 = root(f2, f3, 0, 1, eps1);
