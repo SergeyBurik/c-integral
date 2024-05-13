@@ -1,7 +1,7 @@
 extern pow, exp
 
-global func1
-func1:
+global f2
+f2:
     push ebp
     mov ebp, esp
     finit
@@ -14,8 +14,8 @@ func1:
     pop ebp
     ret            
 
-global func2
-func2:
+global f3
+f3:
     push ebp
     mov ebp, esp
 
@@ -38,8 +38,8 @@ func2:
     pop ebp
     ret
 
-global func3
-func3:
+global f1
+f1:
     push ebp
     mov ebp, esp
 
