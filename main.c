@@ -12,28 +12,25 @@ int showRoot = 0;
 double root(double (*f)(double), double (*g)(double), double a, double b, double eps1) {
     double xl = a, xr = b;
     int iterCount = 0;
+    double xm;
     while (xr - xl > eps1) {
-        printf("%lf %lf\n", xr, xl);
-        double xm = (xl + xr) / 2;
+        xm = (xl + xr) / 2;
         double Fm = f(xm) - g(xm);
-        if (fabs(Fm) <= eps1) {
-            if (showRoot) {
-                printf("Root: %lf\n", xm);
-            }
-            if (showIterations) {
-                printf("Iterations: %d\n", iterCount);
-            }
-            return xm;
+        if ((f(xl) - g(xl)) * (f(xm) - g(xm)) < 0) {
+            xr = xm;
         } else {
-            if ((f(xl) - g(xl)) * (f(xm) - g(xm)) < 0) {
-                xr = xm;
-            } else {
-                xl = xm;
-            }
+            xl = xm;
         }
         iterCount++;
     }
-    return -1;
+
+    if (showRoot) {
+        printf("Root: %lf\n", xm);
+    }
+    if (showIterations) {
+        printf("Iterations: %d\n", iterCount);
+    }
+    return xm;
 }
 
 double integral(double (*f)(double), double a, double b, double eps2) {
