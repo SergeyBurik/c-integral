@@ -52,9 +52,11 @@ func3:
 	sub esp, 8
 	mov dword [esp], 4
     fild dword [esp]
-
+	fxch ; обмен st0 и st1
     fdivp  st1               ; ST(0) = 4 / (x * x + 1)
-    
+	
+	
+
 	fld1
 	faddp
 
