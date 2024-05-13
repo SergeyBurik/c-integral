@@ -128,7 +128,7 @@ int main(int argc, char* argv[]) {
     }
    
 
-    double eps1 = 0.000001;
+    double eps1 = 0.0001;
     double eps2 = 0.000001;
     double f23 = root(f2, f3, 0, 1, eps1);
     double f12 = root(f1, f2, 1, 2, eps1);
