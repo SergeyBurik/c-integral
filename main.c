@@ -36,8 +36,9 @@ double integral(double (*f)(double), double a, double b, double eps2) {
     double prevRes = -1;
     int n = 2;
     double h = 1;
+
+    // acording to Runge method: while (1 / 3) * |I2n - In| > eps2
     while ((fabs(prevRes - res) / 3) > eps2) {
-        printf("->>%lf %lf %lf %lf\n", res, prevRes, fabs(prevRes - res) / 3, eps2);
         prevRes = res;
         h = (b - a) / n;
         res = (f(a) - f(b)) / 2;
