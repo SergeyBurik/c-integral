@@ -46,15 +46,15 @@ double integral(double (*f)(double), double a, double b, double eps2) {
 }
 
 double test_f1(double x) {
-    return pow(x + 1, 3) + 1;
+    return 0.3 * x * x + 2;
 }
 
 double test_f2(double x) {
-    return 3 * x * x + 5 * x + 1;
+    return 2 * x;
 }
 
 double test_f3(double x) {
-    return 2 + 6 / (x + 3);
+    return pow(3, x) - 10;
 }
 
 void test_root(int f1, int f2, double a, double b, double eps, double res) {
