@@ -2,21 +2,9 @@
 #include <math.h>
 #include <string.h>
 
-double func1(double x);
-double func2(double x);
-double func3(double x);
-
-double f1(double x) {
-    return 1 + 4 / (x * x + 1);
-}
-
-double f2(double x) {
-    return x * x * x;
-}
-
-double f3(double x) {
-    return pow(2, -x);
-}
+double f1(double x);
+double f2(double x);
+double f3(double x);
 
 int showIterations = 0;
 int showRoot = 0;
@@ -56,8 +44,6 @@ double integral(double (*f)(double), double a, double b, double eps2) {
     }
     return res;
 }
-
-// TODO check odz
 
 double test_f1(double x) {
     return pow(x + 1, 3) + 1;
@@ -138,9 +124,6 @@ int main(int argc, char* argv[]) {
             i += 1;
         }
     }
-    printf("->>>>>>>>>>>>>FUNC1: %lf\n", func1(2.7));
-    printf("->>>>>>>>>>>>>FUNC2: %lf\n", func2(5));
-    printf("->>>>>>>>>>>>>FUNC3: %lf\n", func3(3));
 
     double eps1 = 0.000001;
     double eps2 = 0.000001;
