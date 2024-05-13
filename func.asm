@@ -54,9 +54,10 @@ func3:
     fild dword [esp]
 
     fdivp  st1               ; ST(0) = 4 / (x * x + 1)
-	fld1
-	fdivp 
     
+	fld1
+	faddp
+
 	add esp, 8	
     mov esp, ebp
     pop ebp
