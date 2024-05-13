@@ -36,10 +36,10 @@ double integral(double (*f)(double), double a, double b, double eps2) {
     double prevRes = -1;
     int n = 2;
     double h = 1;
-    printf("------>>%lf %lf %lf %lf\n", res, prevRes, (1 / 3) * (prevRes - res), eps2);
+    printf("------>>%lf %lf %lf %lf\n", res, prevRes, fabs(prevRes - res), eps2);
 
-    while ((1 / 3) * fabs(prevRes - res) > eps2) {
-        printf("->>%lf %lf %lf %lf\n", res, prevRes, (1 / 3) * fabs(prevRes - res), eps2);
+    while (fabs(prevRes - res) > eps2) {
+        printf("->>%lf %lf %lf %lf\n", res, prevRes, fabs(prevRes - res), eps2);
         prevRes = res;
         h = (b - a) / n;
         res = (f(a) - f(b)) / 2;
