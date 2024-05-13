@@ -22,13 +22,13 @@ func2:
     fld qword [ebp+8]
     fchs ; Изменение знака x
 	sub esp, 16
-    fstp qword [esp] ; Сохранение -x на стек
+    fstp qword [esp + 8] ; Сохранение -x на стек
 
  	; Загрузка 2 в стек сопроцессора
     fld1
     fld1
     faddp st1
-	fstp qword [esp + 8]
+	fstp qword [esp]
 
 	call pow
     add esp, 16
