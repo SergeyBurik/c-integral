@@ -45,8 +45,6 @@ double integral(double (*f)(double), double a, double b, double eps2) {
     return res;
 }
 
-// TODO check odz
-
 double test_f1(double x) {
     return pow(x + 1, 3) + 1;
 }
@@ -78,7 +76,7 @@ void test_root(int f1, int f2, double a, double b, double eps, double res) {
         func2 = test_f3;
     }
     double val = root(func1, func2, a, b, eps);
-    printf("test roots: %lf %lf %lf\n", val, res, val - res);
+    printf("%lf %lf %lf\n", val, res, val - res);
 }
 
 void test_integral(int f1, double a, double b, double eps, double res) {
@@ -95,7 +93,7 @@ void test_integral(int f1, double a, double b, double eps, double res) {
     }
    
     double val = integral(func, a, b, eps);
-    printf("test integral: %lf %lf %lf\n", val, res, val - res);
+    printf("%lf %lf %lf\n", val, res, val - res);
 }
 
 int main(int argc, char* argv[]) {  
