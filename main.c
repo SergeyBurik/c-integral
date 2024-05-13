@@ -16,6 +16,7 @@ double root(double (*f)(double), double (*g)(double), double a, double b, double
     while (xr - xl > eps1) {
         double xm = (xl + xr) / 2;
         double Fm = f(xm) - g(xm);
+        printf("xm: %lf\n", xm);
         if (fabs(Fm) <= eps1) {
             if (showRoot) {
                 printf("Root: %lf\n", xm);
