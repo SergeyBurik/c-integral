@@ -98,16 +98,20 @@ void test_integral(int f1, double a, double b, double eps, double res) {
     printf("test integral: %lf %lf %lf\n", val, res, val - res);
 }
 
-int main(int argc, char* argv[]) {    
+int main(int argc, char* argv[]) {  
+    int options = 0;  
     for (int i = 0; i < argc; i++) {
         if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) {
             printf("Options:\n  --iterations -i\n  --root -r\n  --test-root -R\n  --test-integral -I\n");
+            options = 1;
         }
         if (strcmp(argv[i], "--iterations") == 0 || strcmp(argv[i], "-i") == 0) {
             showIterations = 1;
+            options = 1;
         }
         if (strcmp(argv[i], "--root") == 0 || strcmp(argv[i], "-r") == 0) {
             showRoot = 1;
+            options = 1;
         }
         if (strcmp(argv[i], "--test-root") == 0 || strcmp(argv[i], "-R") == 0) {
             char* opt = argv[i + 1];
@@ -116,6 +120,7 @@ int main(int argc, char* argv[]) {
             sscanf(opt, "%d:%d:%lf:%lf:%lf:%lf", &f_1, &f_2, &A, &B, &E, &R);
             test_root(f_1, f_2, A, B, E, R);
             i += 1;
+            options = 1;
         } 
         if (strcmp(argv[i], "--test-integral") == 0 || strcmp(argv[i], "-I") == 0) {
             char* opt = argv[i + 1];
@@ -124,7 +129,12 @@ int main(int argc, char* argv[]) {
             sscanf(opt, "%d:%lf:%lf:%lf:%lf", &f_1, &A, &B, &E, &R);
             test_integral(f_1, A, B, E, R);
             i += 1;
+            options = 1;
         }
+    }
+
+    if (options) {
+        return 0;
     }
     
     double eps1 = 0.000001;
