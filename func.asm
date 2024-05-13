@@ -49,13 +49,13 @@ func3:
     fld1                  ; Загружаем 1 в ST(0)
     faddp                 ; ST(0) = x * x + 1
 
-	mov dword [ebp+8], 4
-    fild dword [ebp+8]
+	sub esp, 8
+	mov dword [esp], 4
+    fild dword [esp]
 
     fdivp                 ; ST(0) = 4 / (x * x + 1)
-	fld1
     
-	
+	add esp, 8	
     mov esp, ebp
     pop ebp
     ret
