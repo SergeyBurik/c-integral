@@ -140,7 +140,7 @@ int main(int argc, char* argv[]) {
     }
     
     for (double i = -1; i < 1; i+=0.1) {
-        printf("%lf %lf\n", f1(i), func1(i));
+        printf("%lf %lf\n", f2(i), func2(i));
     }
 
     double eps1 = 0.000001;
