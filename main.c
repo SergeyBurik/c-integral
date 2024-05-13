@@ -34,10 +34,10 @@ double root(double (*f)(double), double (*g)(double), double a, double b, double
 double integral(double (*f)(double), double a, double b, double eps2) {
     double res = 0;
     double prevRes = -1;
-    int n = 5;
+    int n = 2;
     double h = 1;
 
-    while ((1 / 3) * fabs(prevRes - res) >= eps2) {
+    while ((1 / 3) * fabs(prevRes - res) > eps2) {
         printf("->>%lf %lf %lf %lf\n", res, prevRes, (1 / 3) * fabs(prevRes - res), eps2);
         prevRes = res;
         h = (b - a) / n;
