@@ -18,17 +18,18 @@ func2:
     push ebp
     mov ebp, esp
 
+	; Вызов pow(2, -x)
     fld qword [ebp+8]
+    fchs ; Изменение знака x
+	sub esp, 16
+    fstp qword [esp] ; Сохранение -x на стек
 
-    ; Загрузка 2 в стек сопроцессора
+ 	; Загрузка 2 в стек сопроцессора
     fld1
     fld1
     faddp st1
+	fstp qword [esp + 8]
 
-    ; Вызов pow(2, -x)
-    fchs ; Изменение знака x
-    fstp qword [esp] ; Сохранение -x на стек
-    mov dword[esp + 8], 2
 	call pow
     add esp, 16
 
