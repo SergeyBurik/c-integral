@@ -13,6 +13,7 @@ double root(double (*f)(double), double (*g)(double), double a, double b, double
     double xl = a, xr = b;
     int iterCount = 0;
     while (xr - xl > eps1) {
+        printf("%lf %lf\n", xr, xl);
         double xm = (xl + xr) / 2;
         double Fm = f(xm) - g(xm);
         if (fabs(Fm) <= eps1) {
