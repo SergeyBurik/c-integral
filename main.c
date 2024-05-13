@@ -139,7 +139,7 @@ int main(int argc, char* argv[]) {
         }
     }
     
-    for (int i = -1; i < 1; i+=0.1) {
+    for (double i = -1; i < 1; i+=0.1) {
         printf("%lf %lf\n", f1(i), func1(i));
     }
 
