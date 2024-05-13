@@ -53,7 +53,7 @@ func3:
 	mov dword [esp], 4
     fild dword [esp]
 
-    fdivp  st1, st0               ; ST(0) = 4 / (x * x + 1)
+    fdivp  st0, st1               ; ST(0) = 4 / (x * x + 1)
     
 	add esp, 8	
     mov esp, ebp
