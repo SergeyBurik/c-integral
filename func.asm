@@ -1,7 +1,7 @@
 extern pow, exp
 
-global f1
-f1:
+global func1
+func1:
     push ebp
     mov ebp, esp
     finit
@@ -14,8 +14,8 @@ f1:
     pop ebp
     ret            
 
-global f2
-f2:
+global func2
+func2:
     push ebp
     mov ebp, esp
 
@@ -38,8 +38,8 @@ f2:
     pop ebp
     ret
 
-global f3
-f3:
+global func3
+func3:
     push ebp
     mov ebp, esp
 
@@ -54,7 +54,7 @@ f3:
     fild dword [esp]
 	fxch ; обмен st0 и st1
     fdivp  st1               ; ST(0) = 4 / (x * x + 1)
-	
+
 	fld1
 	faddp
 

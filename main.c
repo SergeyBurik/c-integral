@@ -2,10 +2,21 @@
 #include <math.h>
 #include <string.h>
 
-double f1(double x);
-double f2(double x);
-double f3(double x);
+double func1(double x);
+double func2(double x);
+double func3(double x);
 
+double f1(double x) {
+    return 1 + 4 / (x * x + 1);
+}
+
+double f2(double x) {
+    return x * x * x;
+}
+
+double f3(double x) {
+    return pow(2, -x);
+}
 
 int showIterations = 0;
 int showRoot = 0;
@@ -16,7 +27,6 @@ double root(double (*f)(double), double (*g)(double), double a, double b, double
     while (xr - xl > eps1) {
         double xm = (xl + xr) / 2;
         double Fm = f(xm) - g(xm);
-        printf("xm: %lf\n", xm);
         if (fabs(Fm) <= eps1) {
             if (showRoot) {
                 printf("Root: %lf\n", xm);
@@ -46,6 +56,8 @@ double integral(double (*f)(double), double a, double b, double eps2) {
     }
     return res;
 }
+
+// TODO check odz
 
 double test_f1(double x) {
     return pow(x + 1, 3) + 1;
@@ -126,9 +138,12 @@ int main(int argc, char* argv[]) {
             i += 1;
         }
     }
-   
+    
+    for (int i = -1; i < 1; i+=0.1) {
+        printf("%lf %lf\n", f1(i), func1(i));
+    }
 
-    double eps1 = 0.0001;
+    double eps1 = 0.000001;
     double eps2 = 0.000001;
     double f23 = root(f2, f3, 0, 1, eps1);
     double f12 = root(f1, f2, 1, 2, eps1);
@@ -137,9 +152,6 @@ int main(int argc, char* argv[]) {
     double intf2 = integral(f2, f23, f12, eps2);
     double intf3 = integral(f3, f13, f23, eps2);
     double intres = intf1 - intf2 - intf3;
-    printf("->>>>>>>>>>>>>FUNC1: %lf\n", f23);
-    printf("->>>>>>>>>>>>>FUNC2: %lf\n", f12);
-    printf("->>>>>>>>>>>>>FUNC3: %lf\n", f13);
 
     printf("Result: %lf\n", intres);
     return 0;
