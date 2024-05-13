@@ -33,10 +33,21 @@ double root(double (*f)(double), double (*g)(double), double a, double b, double
 
 double integral(double (*f)(double), double a, double b, double eps2) {
     double res = 0;
-    for (double i = a; i < b; i+=eps2) {
-        double s = (f(i) + f(i + eps2)) / 2;
-        s *= eps2;
-        res += s;
+    double prevRes = -1;
+    int n = 5;
+    double h = 1;
+
+    while ((1 / 3) * fabs(prevRes - res) < eps2) {
+        prevRes = res;
+        h = (b - a) / n;
+        res = (f(a) - f(b)) / 2;
+        double x = a + h;
+        while (x < b) {
+            res += f(x);
+            x += h;
+        }
+        res *= h;
+        n *= 2;
     }
     return res;
 }
