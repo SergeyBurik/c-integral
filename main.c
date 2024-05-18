@@ -145,9 +145,6 @@ int main(int argc, char* argv[]) {
     double eps1 = 0.000001;
     double eps2 = 0.0001;
     double f23 = root(f2, f3, 0, 1, eps1);
-    printf("->>>>%lf\n", f23);
-    f23 = root(f2, f3, -1, 1, eps1);
-    printf("->>>>%lf\n", f23);
 
     double f12 = root(f1, f2, 1, 2, eps1);
     double f13 = root(f1, f3, -2, -1, eps1);
